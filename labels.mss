@@ -304,6 +304,7 @@
     [main='fuel'],
     [main='restaurant'],
     [main='hostel'],
+    [main='police'],
     [main='cafe'],
     [main='fast_food'],
     [main='shop'],
