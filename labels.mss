@@ -306,8 +306,14 @@
     [main='hostel'],
     [main='police'],
     [main='cafe'],
+    [main='shower'],
+    [main='car_repair'],
+    [main='car_parts'],
+    [main='supermarket'],
+    [main='bakery'],
     [main='fast_food'],
     [main='shop'],
+    [main='toilets'],
     [main='hotel'],
     [main='motel'] {
        text-name: "[name]";
