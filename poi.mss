@@ -1,6 +1,6 @@
 .airport {
-    [aeroway='airfield'][zoom>=12],
-    [aeroway='airport'][zoom>=10][zoom<15] {
+    [aeroway='airfield'][zoom>=15],
+    [aeroway='airport'][zoom>=15][zoom<17] {
         marker-file: url('icons/poi/[aeroway].svg');
         marker-clip:false;
         marker-ignore-placement: true;
@@ -60,51 +60,35 @@
         }
 }
 .poi::high {
-    [zoom>=17] {
-        [main='kindergarten'],
-        [main='school'],
-        [main='university'],
+    [zoom>=16] {
         [main='police'],
-        [main='drinking_water'],
-        [main='grave_yard'],
-        [main='cinema'],
         [main='cafe'],
-        [main='bar'],
         [main='restaurant'],
         [main='toilets'],
         [main='shower'],
         [main='fuel'],
+        [main='fast_food'],
+        [main='car_parts'],
+        [main='supermarket'],
+        [main='bakery'],
+        [main='car_repair'],
+        
+        [main='school'],
+        [main='university'],
         [main='bank'],
         [main='pharmacy'],
         [main='townhall'],
         [main='taxi'],
-        [main='studio'],
         [main='car_rental'],
         [main='money_transfer'],
-        [main='social_facility'],
-        [main='community_centre'],
-        [main='arts_centre'],
         [main='dentist'],
-        [main='fast_food'],
-        [main='library'],
         [main='bureau_de_change'],
-        [main='theatre'],
-        [main='pub'],
         [main='telephone'],
-        [main='beverages'],
-        [main='hairdresser'],
-        [main='supermarket'],
-        [main='bakery'],
         [main='mobile_phone'],
         [main='tailor'],
-        [main='car_parts'],
         [main='computer'],
         [main='clothes'],
-        [main='car_repair'],
-        [main='funeral_directors'],
-        [main='dry_cleaning'],
         [main='butcher'],
-        [main='seafood'],
         [main='hardware'],
         [main='bicycle'],
         [main='motorcycle'],
