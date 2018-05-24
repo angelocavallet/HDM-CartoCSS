@@ -282,8 +282,8 @@
 // =====================================================================
 // POI LABELS
 // =====================================================================
-.poi::label[zoom>=16] {
-    text-name: "";
+.poi::label[zoom>=15] {
+    text-name: "[name]";
     text-face-name: @medium;
     text-size: 10;
     text-wrap-width: 30;
@@ -299,89 +299,45 @@
     text-avoid-edges: true;
     text-clip: false;
     text-character-spacing: -0.5;
-    [zoom>=16] {
+    
+    
+    [main='fuel'],
+    [main='restaurant'],
+    [main='hostel'],
+    [main='cafe'],
+    [main='fast_food'],
+    [main='shop'],
+    [main='hotel'],
+    [main='motel'] {
+       text-name: "[name]";
+       text-face-name: @bold;
+    }
+    
+    [zoom>=17] {
         /* Prio */
         [main='townhall'],
         [main='fire_station'],
-        [main='hospital'] {
-            text-name: "[name]";
-            [zoom>=19] {
-                text-face-name: @bold;
-            }
-        }
-        [main='school'],
-        [main='university'],
-        [main='government'],
-        [main='pharmacy'] {
-            text-min-distance: 2;
-            text-name: "[name]";
-            [zoom>=19] {
-                text-face-name: @bold;
-            }
-        }
-    }
-    [zoom>=18] {
-        /* Prio */
-        [main='courthouse'],
+        [main='hospital'],
+        [main='pharmacy'],
         [main='bank'],
         [main='post_office'],
-        [main='bus_stop'],
-        [main='ngo'],
-        [main='alpine_hut'],
-        [main='guest_house'],
-        [main='hostel'],
-        [main='hotel'],
-        [main='motel'],
-        [main='viewpoint'],
-        [main='camp_site'],
-        [main='museum'],
-        [main='beach_resort'],
-        [main='embassy'],
         [main='doctors'],
         [main='clinic'],
-        [main='library'],
-        [main='theatre'],
-        [main='restaurant'],
-        [main='kindergarten'],
-        [main='cafe'],
-        [main='bar'],
-        [main='studio'],
         [main='car_rental'],
-        [main='money_transfer'],
-        [main='fuel'],
-        [main='social_facility'],
-        [main='community_centre'],
-        [main='dentist'],
-        [main='arts_centre'],
-        [main='fast_food'],
-        [main='pub'],
-        [main='place_of_worship'] {
+        [main='money_transfer'] {
             text-name: "[name]";
         }
     }
-    [zoom>=19] {
-        [main='cinema'] {
+    
+    [zoom>=18] {
+        /* Prio */
+        [main='school'], 
+        [main='university'],
+        [main='government'],
+        [main='dentist'] {
             text-name: "[name]";
-            text-fill: @poi_text2;
         }
     }
-}
-.poi::craft[zoom>=18][craft!=null],
-.poi::shop[zoom>=19][shop!=null] {
-  text-face-name: @medium;
-  text-size: 10;
-  text-wrap-width: 30;
-  text-fill: @poi_text2;
-  text-halo-fill: @poi_halo;
-  text-dy: 12;
-  text-dx: 12;
-  text-placement: point;
-  text-halo-radius: 2;
-  text-label-position-tolerance: 18;
-  text-placement-type: simple;
-  text-placements: 'S,N,W,E';
-  text-avoid-edges: true;
-  text-name: '[name]';
 }
 
 // =====================================================================
@@ -410,14 +366,6 @@
       text-face-name: @regular;
       text-fill: @park * 0.6;
       text-halo-fill: lighten(@park, 10);
-    }
-    [type='golf_course'][zoom>=10] {
-      text-fill: @sports * 0.6;
-      text-halo-fill: lighten(@sports, 10);
-    }
-    [type='cemetery'][zoom>=10] {
-      text-fill: @cemetery * 0.6;
-      text-halo-fill: lighten(@cemetery, 10);
     }
     [type='hospital'][zoom>=10] {
       text-fill: @hospital * 0.6;
@@ -617,22 +565,3 @@
   text-size: 11;
 }
 
-#natural_point_label[type='volcano'][zoom>=13],
-#natural_point_label[type='peak'][zoom>=13] {
-  shield-file: url('icons/natural/peak-6.png');
-  shield-name: '[name]';
-  shield-face-name: @regular;
-  shield-fill: @peak;
-  shield-size: 10;
-  shield-min-distance: 50;
-  shield-text-dy: 6;
-  shield-text-dx: 6;
-  shield-halo-fill: @other_halo;
-  shield-halo-radius: 1;
-  shield-placement-type: simple;
-  shield-placements: 'S,N,E,W';
-  shield-unlock-image: true;
-  [ele!=null] {
-    shield-name: '[name] + " (" + [ele] + ")"';
-  }
-}
