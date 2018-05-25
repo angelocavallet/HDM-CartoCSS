@@ -283,7 +283,6 @@
 // POI LABELS
 // =====================================================================
 .poi::label[zoom>=15] {
-    text-name: "[name]";
     text-face-name: @medium;
     text-size: 10;
     text-wrap-width: 30;
@@ -300,48 +299,54 @@
     text-clip: false;
     text-character-spacing: -0.5;
     
-    
-    [main='fuel'],
-    [main='restaurant'],
-    [main='hostel'],
     [main='police'],
     [main='cafe'],
+    [main='restaurant'],
+    [main='toilets'],
     [main='shower'],
-    [main='car_repair'],
+    [main='fuel'],
+    [main='fast_food'],
     [main='car_parts'],
     [main='supermarket'],
     [main='bakery'],
-    [main='fast_food'],
+    [main='car_repair'],
+    [main='fire_station'],
     [main='shop'],
-    [main='toilets'],
+    [main='doctors'],
+    [main='information'],
+    [main='hostel'],
     [main='hotel'],
-    [main='motel'] {
+    [main='motel'],
+    [main='clinic'],
+    [main='hospital'],
+    [main='tyres'] {
        text-name: "[name]";
        text-face-name: @bold;
     }
     
     [zoom>=17] {
-        /* Prio */
-        [main='townhall'],
-        [main='fire_station'],
-        [main='hospital'],
-        [main='pharmacy'],
+        [main='school'],
+        [main='aeroway'],
         [main='bank'],
-        [main='post_office'],
-        [main='doctors'],
-        [main='clinic'],
-        [main='car_rental'],
-        [main='money_transfer'] {
-            text-name: "[name]";
-        }
-    }
-    
-    [zoom>=18] {
-        /* Prio */
-        [main='school'], 
-        [main='university'],
         [main='government'],
-        [main='dentist'] {
+        [main='pharmacy'],
+        [main='townhall'],
+        [main='taxi'],
+        [main='car_rental'],
+        [main='money_transfer'],
+        [main='dentist'],
+        [main='bureau_de_change'],
+        [main='telephone'],
+        [main='university'],
+        [main='mobile_phone'],
+        [main='tailor'],
+        [main='computer'],
+        [main='clothes'],
+        [main='butcher'],
+        [main='hardware'],
+        [main='atm'],
+        [main='post_office'],
+        [main='government'] {
             text-name: "[name]";
         }
     }
