@@ -43,7 +43,6 @@ Stylesheet:
   - "base.mss"
   - "roads.mss"
   - "poi.mss"
-  - "power.mss"
   - "labels.mss"
 
 Layer:
@@ -471,32 +470,6 @@ Layer:
     advanced:
       extent_from_subquery: 'true'
 
-  - id: power-poly
-    <<: *extents
-    class: power-poi
-    Datasource:
-      <<: *postgis
-      table: "(SELECT way, power AS type, tags->'generator:source' AS source, name FROM planet_osm_polygon WHERE power IS NOT NULL) as data"
-    advanced:
-      extent_from_subquery: 'true'
-
-  - id: power-line
-    <<: *extents
-    Datasource:
-      <<: *postgis
-      table: "(SELECT way, power AS type, tags->'generator:source' AS source, name FROM planet_osm_line WHERE power IS NOT NULL) as data"
-    advanced:
-      extent_from_subquery: 'true'
-
-  - id: power-point
-    <<: *extents
-    class: power-poi
-    Datasource:
-      <<: *postgis
-      table: "(SELECT way, power AS type, tags->'generator:source' AS source, name FROM planet_osm_point WHERE power IS NOT NULL) as data"
-    advanced:
-      extent_from_subquery: 'true'
-
   - id: airport-point
     <<: *extents
     class: airport
@@ -671,7 +644,7 @@ Layer:
         FROM
           planet_osm_point
         WHERE
-          "natural" IS NOT NULL AND "natural" IN ('peak', 'bay', 'volcano')
+          "natural" IS NOT NULL AND "natural" IN ('bay')
         ORDER BY ele DESC NULLS LAST
         ) AS data
     advanced:
