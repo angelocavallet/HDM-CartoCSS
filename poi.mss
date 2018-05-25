@@ -25,8 +25,7 @@
             marker-width: 12;
         }
 }
-.poi::high {
-    [zoom>=17] {
+.poi::high[zoom>=17] {
         [main='school'],
         [main='aeroway'],
         [main='bank'],
@@ -52,5 +51,4 @@
             marker-file: url('icons/poi/[main].svg');
             marker-clip:false;
         }
-    }
 }
