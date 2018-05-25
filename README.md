@@ -25,7 +25,7 @@ Primary (showed on zoom level 14):
     hospital
     tyres
     
-Secondary (Showed on zoom level 17){
+Secondary (Showed on zoom level 17):
     school
     aeroway
     bank
