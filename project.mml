@@ -1,0 +1,1263 @@
+{
+    "bounds": [
+        -180,
+        -85,
+        180,
+        85
+    ],
+    "_parts": {
+        "extents": {
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on"
+        },
+        "extents84": {
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "WGS84",
+            "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+        },
+        "postgis": {
+            "type": "postgis",
+            "dbname": "osm",
+            "key_field": "",
+            "geometry_field": "way",
+            "extent": "-20037508,-20037508,20037508,20037508",
+            "host": "localhost",
+            "user": "hot",
+            "password": "m4d31nfr4nc3"
+        }
+    },
+    "center": [
+        29.9377,
+        -3.4216,
+        9
+    ],
+    "format": "png",
+    "interactivity": false,
+    "minzoom": 0,
+    "maxzoom": 20,
+    "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+    "Stylesheet": [
+        {
+            "id": "palette.mss",
+            "data": "/* ****************************************************************** */\n/* OSM BRIGHT for Imposm                                              */\n/* ****************************************************************** */\n\n/* For basic style customization you can simply edit the colors and\n * fonts defined in this file. For more detailed / advanced\n * adjustments explore the other files.\n *\n * GENERAL NOTES\n *\n * There is a slight performance cost in rendering line-caps.  An\n * effort has been made to restrict line-cap definitions to styles\n * where the results will be visible (lines at least 2 pixels thick).\n */\n\n/* ================================================================== */\n/* FONTS\n/* ================================================================== */\n\n/* directory to load fonts from in addition to the system directories */\nMap { font-directory: url(./fonts); }\n\n/* set up font sets for various weights and styles */\n@regular:           'Noto Sans Regular',\n                    'Noto Sans Arabic Regular',\n                    'Noto Sans Armenian Regular',\n                    'Noto Sans CJK JP Regular',\n                    'Noto Sans Georgian Regular',\n                    'Noto Sans Hebrew Regular',\n                    'Noto Sans Khmer Regular',\n                    'Noto Sans Lao Regular',\n                    'Noto Sans Myanmar Regular',\n                    'Noto Sans Tamil Regular',\n                    'Noto Sans Thai Regular',\n                    'Unifont Medium',\n                    'unifont Medium';\n@medium:            'Noto Sans Medium',\n                    'Noto Sans Arabic Medium',\n                    'Noto Sans Armenian Medium',\n                    'Noto Sans CJK JP Medium',\n                    'Noto Sans Georgian Medium',\n                    'Noto Sans Hebrew Medium',\n                    'Noto Sans Khmer Medium',\n                    'Noto Sans Lao Medium',\n                    'Noto Sans Myanmar Medium',\n                    'Noto Sans Tamil Medium',\n                    'Noto Sans Thai Medium',\n                    'Unifont Medium',\n                    'unifont Medium';\n@bold:              'Noto Sans Bold',\n                    'Noto Sans Arabic Bold',\n                    'Noto Sans Armenian Bold',\n                    'Noto Sans CJK JP Bold',\n                    'Noto Sans Georgian Bold',\n                    'Noto Sans Hebrew Bold',\n                    'Noto Sans Khmer Bold',\n                    'Noto Sans Lao Bold',\n                    'Noto Sans Myanmar Bold',\n                    'Noto Sans Tamil Bold',\n                    'Noto Sans Thai Bold',\n                    'Unifont Medium',\n                    'unifont Medium';\n\n/* Some fonts are larger or smaller than others. Use this variable to\n   globally increase or decrease the font sizes. */\n/* Note this is only implemented for certain things so far */\n@text_adjust: 0;\n\n\n/* ================================================================== */\n/* LANDUSE & LANDCOVER COLORS\n/* ================================================================== */\n\n@land:              #F7F6F1;\n@water:             #90cccb; //#79c1c0\n@beach:             #EEE5B2;\n@cemetery:          #D6DED2;\n@military:          #D1BFAA;\n@wetland:           #e3e9e2; //#CFDCD3;\n@peak:              #69623c;\n@salt:              #ecf0f1;\n/* Greens */\n@park:              #D0DCAE; //#86ac86\n@wooded:            #B2C29D; //#95ae79;\n@grass:             @park;\n@agriculture:       #DEDDBE; //#c7c78d; //#C3D9AD;\n@heath:             #E1E9D6;\n@sports:            @park;\n\n@residential:       darken(@land, 4%);\n@commercial:        @land * 0.97;\n@industrial:        #D7C8CB;\n\n@building:          #dcd7d7;\n@building_hedge:    #dcd7d7;\n@collapsed:         #b25047;\n@damaged:           #c87c38;\n@hospital:          rgb(229,198,195);\n@school:            #E2D6CD;\n\n\n/* ================================================================== */\n/* ROAD COLORS\n/* ================================================================== */\n\n/* For each class of road there are three color variables:\n * - line: for lower zoomlevels when the road is represented by a\n *         single solid line.\n * - case: for higher zoomlevels, this color is for the road's\n *         casing (outline).\n * - fill: for higher zoomlevels, this color is for the road's\n *         inner fill (inline).\n */\n\n/* ================================================================== */\n/* ROAD SURFACES\n/* ================================================================== */\n\n// @unpaved: darken(@residential, 15%); //#e2d8c3; //#ede7da;\n@unpaved: @residential; //#e2d8c3; //#ede7da;\n@paved: #aea1a0;\n\n@unpaved_case: darken(@unpaved, 15%);\n\n@motorway_line:     #a098b0; //#44366e;\n@motorway_fill:     @motorway_line;\n@motorway_case:     darken(@motorway_fill, 10%);\n\n@primary_line:      #d2938e;\n@primary_fill:      @primary_line;\n@primary_case:      @primary_fill * 0.9;\n\n@secondary_line:    #e9cbb0;\n@secondary_fill:    @secondary_line;\n@secondary_case:    @secondary_fill * 0.9;\n\n@tertiary_line:    #dbde99;\n@tertiary_fill:    @tertiary_line;\n@tertiary_case:    @tertiary_fill * 0.9;\n\n@standard_line:     #d2938e;\n@standard_fill:     #e4e1d1;\n@standard_case:     @standard_fill * 0.9;\n\n@urban_fill:        #f7f6f1;\n@urban_case:        @urban_fill * 0.9;\n\n@track_line:        #BFA286;\n@track_fill:        @unpaved;\n@track_case:        darken(@unpaved, 20%);\n\n@pedestrian_line:   #CBC5BF;\n@pedestrian_fill:   #BFA286;\n@pedestrian_case:   @land;\n\n@cycle_line:        @standard_line;\n@cycle_fill:        #FAFAF5;\n@cycle_case:        @land;\n\n@rail_line:         #999;\n@rail_fill:         #fff;\n@rail_case:         @land;\n\n@aeroway:           #ddd;\n\n@ferry:             #42908f;\n\n/* ================================================================== */\n/* BOUNDARY COLORS\n/* ================================================================== */\n\n@admin_2:           #537076;\n@admin_3:           #a59c9b;\n@admin_2_text:      @admin_2;\n@admin_3_text:      @admin_3;\n\n/* ================================================================== */\n/* LABEL COLORS\n/* ================================================================== */\n\n/* We set up a default halo color for places so you can edit them all\n   at once or override each individually. */\n@place_halo:        fadeout(#fff,34%);\n\n@country_text:      #435;\n@country_halo:      @place_halo;\n\n@capital_text:      @country_text;\n@capital_halo:      @country_halo;\n\n@state_text:        #a6a6aa;\n@state_halo:        @place_halo;\n\n@city_text:         #222;\n@city_halo:         @place_halo;\n\n@town_text:         #444;\n@town_halo:         @place_halo;\n\n@poi_text:          #537076;\n@poi_text2:         #868E90;\n@poi_halo:          @place_halo;\n\n@road_text:         #525252;\n@road_halo:         rgba(255,255,255,0.8);\n\n@housenumber_text:  #797979;\n\n@other_text:        #888;\n@other_halo:        @place_halo;\n\n@locality_text:     #aaa;\n@locality_halo:     @land;\n\n/* Also used for other small places: hamlets, suburbs, localities */\n@village_text:      #888;\n@village_halo:      @place_halo;\n\n\n/* ================================================================== */\n/* OTHERS\n/* ================================================================== */\n\n@contour_line:      #d2ccb0;\n@power_line:        #9a747c;\n"
+        },
+        {
+            "id": "base.mss",
+            "data": "/* BASE.MSS CONTENTS\n * - Landuse & landcover\n * - Buildings\n * - Relief\n * - Water areas\n * - Water ways\n * - Administrative boundaries\n * - Barrier points\n * - Barrier lines\n */\n\n/* ================================================================== */\n/* LANDUSE & LANDCOVER\n/* ================================================================== */\n\n#land-low[zoom>=0][zoom<10],\n#land-high[zoom>=10] {\n  polygon-fill: @land;\n  polygon-gamma: 0.75;\n}\n\n#landuse_gen0[zoom>3][zoom<=9],\n#landuse_gen1[zoom>9][zoom<=12],\n#landuse[zoom>12] {\n  [type='cemetery']      { polygon-fill: @cemetery; }\n  [type='grave_yard']    { polygon-fill: @cemetery; }\n  [type='college']       { polygon-fill: @school; }\n  [type='commercial']    { polygon-fill: @industrial; }\n  [type='common']        { polygon-fill: @park; }\n  [type='golf_course']   { polygon-fill: @park; }\n  [type='hospital']      { polygon-fill: @hospital; }\n  [type='industrial']    { polygon-fill: @industrial; }\n  [type='landfill']      {\n    polygon-fill: darken(@industrial,10%);\n    [landfill_type=\"underwater\"] { polygon-fill: darken(@water,1%);}\n  }\n  [type='quarry']        { polygon-fill: @industrial; }\n  [type='pedestrian']    { polygon-fill: @pedestrian_case; }\n  [type='residential']   { polygon-fill: @residential; }\n  [type='retail']        { polygon-fill: @residential; }\n  [type='school']        { polygon-fill: @school; }\n  [type='education']     { polygon-fill: @school; }\n  [type='sports_centre'] { polygon-fill: @sports; }\n  [type='stadium']       { polygon-fill: @sports; }\n  [type='university']    { polygon-fill: @school; }\n  [type='pitch']         { polygon-fill: @sports; polygon-opacity: 0.8; }\n  [type='grass']         { polygon-fill: @grass; }\n  [type='grassland']     { polygon-fill: @grass; }\n  [type='park']          { polygon-fill: @park; }\n  [type='garden']        { polygon-fill: @park; }\n  [type='village_green'] { polygon-fill: @park; }\n  [type='recreation_ground'] { polygon-fill: @park; }\n  [type='picnic_site']   { polygon-fill: @park; }\n  [type='camp_site']   { polygon-fill: @park; }\n  [type='playground']    { polygon-fill: @park; }\n  [type='forest']        { polygon-fill: @wooded; }\n  [type='wood']          { polygon-fill: @wooded; }\n  [type='heath']         { polygon-fill: @heath; }\n  [type='meadow']        { polygon-fill: @heath; }\n  [type='scrub']         { polygon-fill: @heath; }\n  [type='farmland']      { polygon-fill: @agriculture; }\n  [type='farm']          { polygon-fill: @agriculture; }\n  [type='orchard']       { polygon-fill: @agriculture; }\n  [type='allotments']    { polygon-fill: @agriculture; }\n  [type='beach']         { polygon-fill: @beach; }\n  [type='basin']         { polygon-fill: @water; }\n  [type='salt_pond']     {\n    polygon-fill: @salt;\n    [zoom>=16] { polygon-pattern-file: url('icons/pattern/salt-36.png'); }\n  }\n  [type='desert']        {\n    polygon-fill: @beach;\n    polygon-opacity: 0.3;\n    [zoom>=9] {\n      polygon-opacity: 0.5;\n    }\n    [zoom>=11] {\n      polygon-opacity: 0.5;\n    }\n    [zoom>=14] {\n      polygon-opacity: 0.7;\n    }\n    [zoom>=16] {\n      polygon-opacity: 0.8;\n    }\n  }\n  [type='military']      {\n    [zoom<=9] {\n      polygon-fill: @military;\n      polygon-opacity: 0.4;\n    }\n    [zoom>=10] {\n      polygon-pattern-file:url('icons/pattern/military-36.png');\n    }\n  }\n  [type='wetland']       {\n    [zoom<14] {\n      polygon-fill: @wetland;\n    }\n    [zoom>=14] {\n      polygon-pattern-file:url('icons/pattern/marsh-36.png');\n    }\n  }\n}\n\n#landuse_overlays[type='nature_reserve'][zoom>6] {\n  line-color: darken(@wooded, 5%);\n  line-opacity:  0.8;\n  polygon-fill: @wooded;\n  polygon-opacity: 0.4;\n  line-width: 0.5;\n  [zoom>=10] {\n    line-dasharray: 5,3;\n    line-width: 1;\n    polygon-opacity: 0.3;\n  }\n  [zoom>=12] {\n    line-width: 1.5;\n    line-dasharray: 10,5;\n    polygon-opacity: 0.2;\n  }\n  [zoom>=14] {\n    line-width: 2.0;\n  }\n}\n\n/* ================================================================== */\n/* BUILDINGS\n/* ================================================================== */\n\n#buildings[zoom>=14] {\n  polygon-fill: @building;\n  line-color: darken(@building, 5%);\n  line-width: 0.2;\n  [poi='yes'] {\n    polygon-fill: darken(@building, 5%);\n    line-color: darken(@building, 10%);\n  }\n\n  [zoom>=16] {\n    line-color:darken(@building,10%);\n    line-width: 0.4;\n    [poi='yes'] {\n      line-color: darken(@building, 15%);\n    }\n  }\n\n  [zoom>=18] {\n    line-color:darken(@building,20%);\n  }\n\n  [type=\"collapsed\"],\n  [type=\"damaged\"] {\n    [zoom>=19] {\n      polygon-fill: lighten(@building, 3%);\n    }\n    line-width: 0.5;\n    line-color: @damaged;\n    [zoom=18] {\n      line-width: 0.6;\n    }\n    [zoom>=19] {\n      line-dasharray: 6,3;\n      line-width: 0.7;\n    }\n    [type=\"collapsed\"] {\n      line-color: @collapsed;\n    }\n  }\n\n}\n\n\n/* ================================================================== */\n/* RELIEF\n/* ================================================================== */\n\n#hillshade[zoom>=4]{\n    raster-scaling: bilinear;\n    raster-comp-op: multiply;\n    raster-opacity: 0.85;\n\n    [zoom>=5]  {raster-opacity: 0.65;}\n    [zoom>=7]  {raster-opacity: 0.55;}\n    [zoom>=9]  {raster-opacity: 0.45;}\n    [zoom>=10] {raster-opacity: 0.40;}\n    [zoom>=14] {raster-opacity: 0.30;}\n    [zoom>=16] {raster-opacity: 0.25;}\n}\n\n#contour_line[zoom>=12]{\n  line-width: 0.2;\n  line-color: @contour_line;\n  [zoom>=15] {\n    line-width: 0.5;\n  }\n  [height=~'^\\d00$'] {\n    line-width: 0.5;\n    [zoom>=15] {\n      line-width: 1;\n      text-name: '[height]';\n      text-face-name: @regular;\n      text-placement: line;\n      text-fill: @contour_line;\n      text-halo-fill: @land;\n      text-halo-radius: 1;\n      text-spacing: 500;\n    }\n  }\n}\n\n\n/* ================================================================== */\n/* WATER AREAS\n/* ================================================================== */\n\nMap {\n  background-color: @water;\n  buffer-size: 256;\n}\n\n#water_gen0[zoom>3][zoom<=9],\n#water_gen1[zoom>9][zoom<=12],\n#water[zoom>12] {\n  polygon-fill: @water;\n}\n\n/* ================================================================== */\n/* WATER WAYS\n/* ================================================================== */\n\n#waterway_low[zoom>=8][zoom<=12] {\n  line-color: @water;\n  line-cap: round;\n  line-join: round;\n  [type='river'],\n  [type='canal'] {\n    [seasonal='yes']{\n      line-cap: butt;\n      line-color: @water;\n      [zoom=10] {\n        line-width: 0.4;\n        line-dasharray: 6,3;\n      }\n      [zoom=11] {\n        line-width: 0.6;\n        line-dasharray: 8,4;\n      }\n      [zoom=12] {\n        line-width: 0.8;\n        line-dasharray: 12,6;\n      }\n    }\n\n  [zoom=8] { line-width: 0.1; }\n  [zoom=9] { line-width: 0.2; }\n  [zoom=10]{ line-width: 0.4; }\n  [zoom=11]{ line-width: 0.6; }\n  [zoom=12]{ line-width: 0.8; }\n  }\n}\n\n#waterway_med[zoom>=13][zoom<=14] {\n  line-color: @water;\n  [type='river'],\n  [type='canal'] {\n    line-cap: round;\n    line-join: round;\n    [seasonal='yes']{\n      line-cap: butt;\n      line-color: @water;\n      [zoom=13] {\n        line-width: 1;\n        line-dasharray: 8,4;\n      }\n      [zoom=14] {\n        line-width: 1.5;\n        line-dasharray: 16,6;\n      }\n    }\n    [zoom=13]{ line-width: 1; }\n    [zoom=14]{ line-width: 1.5; }\n  }\n  [type='stream'] {\n    [seasonal='yes'] {\n      line-cap: butt;\n      line-color: @water;\n      [zoom=14] {\n        line-width: 0.4;\n        line-dasharray: 8,4;\n      }\n    }\n    [zoom=13]{ line-width: 0.2; }\n    [zoom=14]{ line-width: 0.4; }\n  }\n}\n\n#waterway_high[zoom>=15] {\n  line-color: @water;\n  line-cap: round;\n  line-join: round;\n  [type='river'] {\n    [seasonal='yes']{\n    line-cap: butt;\n      line-color: @water;\n      [zoom=15] {\n        line-width: 6;\n        line-dasharray: 24,7;\n        }\n      [zoom=16] {\n        line-width: 7;\n        line-dasharray: 28,8;\n        }\n      [zoom=17] {\n        line-width: 8;\n        line-dasharray: 32,10;\n        }\n      [zoom>=18] {\n        line-width: 9;\n        line-dasharray: 56,15;\n        }\n      [zoom>=19] {\n        line-width: 12;\n        line-dasharray: 66,20;\n        }\n     }\n    [zoom=15]{ line-width: 6; }\n    [zoom=16]{ line-width: 7; }\n    [zoom=17]{ line-width: 8; }\n    [zoom=18]{ line-width: 9; }\n    [zoom>=19]{ line-width: 12; }\n  }\n    [type='stream'] {\n      [seasonal='yes']{\n        line-color: @water;\n        line-cap: butt;\n        [zoom=15] {\n          line-width: 0.6;\n          line-dasharray: 24,7;\n        }\n        [zoom=16] {\n          line-width: 0.8;\n          line-dasharray: 28,8;\n        }\n        [zoom=17] {\n          line-width: 1;\n          line-dasharray: 32,10;\n        }\n        [zoom=18] {\n          line-width: 1.5;\n          line-dasharray: 56,15;\n        }\n        [zoom>=19] {\n          line-width: 2;\n          line-dasharray: 66,20;\n        }\n      }\n      [zoom=15]{ line-width: 0.6; }\n      [zoom=16]{ line-width: 0.8; }\n      [zoom=17]{ line-width: 1; }\n      [zoom=18]{ line-width: 1.5; }\n      [zoom>=19]{ line-width: 2; }\n  }\n  [type='ditch'],\n  [type='drain'] {\n    [zoom=15]{ line-width: 0.1; }\n    [zoom=16]{ line-width: 0.3; }\n    [zoom=17]{ line-width: 0.5; }\n    [zoom=18]{ line-width: 0.7; }\n    [zoom=19]{ line-width: 1; }\n    [zoom>19]{ line-width: 1.5; }\n  }\n}\n\n/* ================================================================== */\n/* ADMINISTRATIVE BOUNDARIES\n/* ================================================================== */\n\n\n#admin-low[maritime='no'][admin_level=2][zoom>=2][zoom<5],\n#admin-low[maritime='no'][admin_level=3][zoom>=4][zoom<5],\n#admin-low[maritime='no'][admin_level=4][zoom>=4][zoom<5],\n#admin-low[zoom>=5][zoom<11],\n#admin-med[zoom>=11][zoom<13],\n#admin-high[zoom>=13] {\n  [admin_level=2] {\n    outline/line-color: lighten(@admin_2, 25%);\n    outline/line-width: 2;\n    [zoom>=8] {\n      outline/line-width: 3;\n    }\n  }\n  eraser/line-color: white;\n  eraser/line-width: 1;\n  eraser/comp-op: darken;\n  line-color: @admin_2;\n  line-width: 1;\n  [admin_level>2] {\n    line-dasharray: 10,5;\n    line-color: @admin_3;\n    [admin_level>=6] {\n      line-dasharray: 5,5;\n      line-width: 0.8;\n    }\n  }\n}\n\n/* ================================================================== */\n/* BARRIER POINTS\n/* ================================================================== */\n\n\n.barriers[zoom>=17][barrier = 'divider'] {\n  marker-height: 2;\n  marker-fill: #c7c7c7;\n  marker-line-opacity:0;\n  marker-allow-overlap:true;\n}\n\n/* ================================================================== */\n/* BARRIER LINES\n/* ================================================================== */\n\n.barriers[zoom>=17][barrier = 'gate'] {\n  line-width:2.5;\n  line-color:#aab;\n  line-dasharray:3,2;\n}\n\n.barriers[zoom>=17][barrier = 'fence'] {\n  line-width:1.75;\n  line-color:#aab;\n  line-dasharray:1,1;\n}\n\n.barriers[zoom>=16][barrier='hedge'] {\n  ::alternate {\n    line-color: @park;\n  }\n  line-width:2;\n  line-color:darken(@park,15%);\n  line-dasharray:2,4;\n  line-cap: round;\n  [zoom=16] {\n    line-width: 1;\n  }\n}\n\n.barriers[zoom>=16][barrier = 'wall'] {\n  line-width:1;\n  line-color: darken(@land,25%);\n}\n"
+        },
+        {
+            "id": "roads.mss",
+            "data": "/* ROADS.MSS CONTENTS\n * - Road & rail lines\n * - Ferries\n * - Aeroways\n * - Railway\n */\n\n/* ==================================================================\n   ROAD & RAIL LINES\n/* ================================================================== */\n\n/* At lower zoomlevels, just show major automobile routes: motorways\nand trunks. */\n\n#roads_low[zoom>=5][zoom<=8] {\n  [type='motorway'] { line-color: @motorway_line; }\n  [type='trunk'] { line-color: @motorway_line; }\n  [zoom=5] {\n    [type='motorway'] { line-width: 0.4; }\n    [type='trunk'] { line-width: 0.2; } }\n  [zoom=6] {\n    [type='motorway'] { line-width: 0.5; }\n    [type='trunk'] { line-width: 0.25; } }\n  [zoom=7] {\n    [type='motorway'] { line-width: 0.6; }\n    [type='trunk'] { line-width: 0.3; } }\n  [zoom=8] {\n    [type='motorway'] { line-width: 1; }\n    [type='trunk'] { line-width: 0.5; } }\n}\n\n/* At mid-level scales start to show primary and secondary routes\nas well. */\n\n#roads_med[zoom>=9][zoom<=10] {\n  [type='motorway'],\n  [type='motorway_link'] {\n    line-color: @motorway_line;\n  }\n  [type='trunk'],\n  [type='trunk_link'] {\n    line-color: @motorway_line;\n  }\n  [type='primary'] { line-color: @primary_line; }\n  [type='secondary'] { line-color: @secondary_line; }\n  [type='tertiary'] { line-color: @standard_line; }\n  [zoom=9] {\n    [type='motorway'],[type='trunk'] { line-width: 1.4; }\n    [type='primary'],[type='secondary'],\n    [type='motorway_link'],[type='trunk_link'] { line-width: 0.6; }\n  }\n  [zoom=10] {\n    [type='motorway'],[type='trunk'] { line-width: 1.8; }\n    [type='primary'],[type='secondary'],\n    [type='motorway_link'],[type='trunk_link'] { line-width: 0.8; }\n  }\n}\n\n/* Road width variables that are used in road & bridge styles */\n@r11_motorway: 3;   @r11_main: 3;   @r11_inter: 1.5;  @r11_minor: 0;   @r11_narrow: 0;   @r11_noauto: 0;\n@r12_motorway: 4;   @r12_main: 3.5; @r12_inter: 2;    @r12_minor: 0;   @r12_narrow: 0;   @r12_noauto: 0;\n@r13_motorway: 5;   @r13_main: 4.5; @r13_inter: 3.5;  @r13_minor: 2.5; @r13_narrow: 1.5; @r13_noauto: 0;\n@r14_motorway: 5;   @r14_main: 4.5; @r14_inter: 3.5;  @r14_minor: 2;   @r14_narrow: 2;   @r14_noauto: 1.2;\n@r15_motorway: 6;   @r15_main: 5;   @r15_inter: 4;    @r15_minor: 3;   @r15_narrow: 2.5; @r15_noauto: 1.5;\n@r16_motorway: 8;   @r16_main: 8;   @r16_inter: 6;    @r16_minor: 5;   @r16_narrow: 4;   @r16_noauto: 1.7;\n@r17_motorway: 10;  @r17_main: 10;  @r17_inter: 8;    @r17_minor: 6;   @r17_narrow: 5;   @r17_noauto: 2;\n@r18_motorway: 16;  @r18_main: 14;  @r18_inter: 12;   @r18_minor: 8;   @r18_narrow: 8;   @r18_noauto: 3;\n\n@c11_motorway: 1;   @c11_main: 1;   @c11_inter: 0;    @c11_minor: 0;   @c11_narrow: 0;   @c11_noauto: 0;\n@c12_motorway: 1.5; @c12_main: 1.5; @c12_inter: 1;    @c12_minor: 0;   @c12_narrow: 0;   @c12_noauto: 0;\n@c13_motorway: 2;   @c13_main: 2;   @c13_inter: 1;    @c13_minor: 1;   @c13_narrow: 0.2; @c13_noauto: 0;\n@c14_motorway: 2;   @c14_main: 2;   @c14_inter: 1;    @c14_minor: 1;   @c14_narrow: 0.2; @c14_noauto: 1;\n@c15_motorway: 2.5; @c15_main: 2;   @c15_inter: 2;    @c15_minor: 1.5; @c15_narrow: 0.2; @c15_noauto: 2;\n@c16_motorway: 2.5; @c16_main: 2;   @c16_inter: 1.5;  @c16_minor: 1.5; @c16_narrow: 1;   @c16_noauto: 2;\n@c17_motorway: 3;   @c17_main: 2;   @c17_inter: 2;    @c17_minor: 2;   @c17_narrow: 1;   @c17_noauto: 3;\n@c18_motorway: 4;   @c18_main: 3;   @c18_inter: 3;    @c18_minor: 3;   @c18_narrow: 2;   @c18_noauto: 4;\n\n\n/* ---- Casing ----------------------------------------------- */\n\n#roads_high::minor[style='standard'][zoom>=13][zoom<=20],\n#roads_high::minor[style='urban'][surface='paved'][zoom>=13][zoom<=20],\n#roads_high::minor[style='urban'][surface='unpaved'][zoom>=15][zoom<=20],\n#roads_high::minor[style='track'][zoom>=11][zoom<=20],\n#roads_high::casing[surface='unpaved'][zoom>=11][zoom<=20] {\n  /* -- colors & styles -- */\n  line-cap: butt;\n  line-join: round;\n  line-color: @unpaved_case;\n  [structure='bridge'] { line-color: darken(@unpaved_case, 20%); }\n  [style=\"track\"] {\n    line-color: @track_case;\n    [structure='bridge'] { line-color: darken(@track_case, 20%); }\n  }\n  [style='noauto'] {\n    line-color: @pedestrian_case;\n    line-comp-op: darken;\n    [structure='bridge'] { line-color: darken(@pedestrian_case, 10%); }\n  }\n\n  /* -- widths -- */\n  [zoom=11] {\n    line-width: 0;\n    [style='motorway'] { line-width: @r11_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r11_main; }\n  }\n  [zoom=12] {\n    line-width: 0;\n    [style='motorway'] { line-width: @r12_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r12_main; }\n    [style='tertiary'] { line-width: @r12_inter; }\n  }\n  [zoom=13] {\n    line-width: 0;\n    [style='motorway'] { line-width: @r13_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r13_main; }\n    [style='tertiary'] { line-width: @r13_inter; }\n    [style='standard'] { line-width: @r13_minor; }\n    [style='track']{ line-width: @r13_narrow; }\n  }\n  [zoom=14] {\n    [style='motorway'] { line-width: @r14_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r14_main; }\n    [style='tertiary'] { line-width: @r14_inter; }\n    [style='standard'], [style='urban'][surface='paved'] { line-width: @r14_minor; }\n    [style='track']{ line-width: @r14_narrow; }\n    [style='noauto']   { line-width: @r14_noauto; }\n  }\n  [zoom=15] {\n    [style='motorway'] { line-width: @r15_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r15_main; }\n    [style='tertiary'] { line-width: @r15_inter; }\n    [style='standard'], [style='urban'] { line-width: @r15_minor; }\n    [style='track'] { line-width: @r15_narrow; }\n    [style='noauto'] { line-width: @r15_noauto; }\n  }\n  [zoom=16] {\n    [style='motorway'] { line-width: @r16_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r16_main; }\n    [style='tertiary'] { line-width: @r16_inter; }\n    [style='standard'] { line-width: @r16_minor; }\n    [style='urban'] { line-width: @r16_minor; }\n    [style='track']{ line-width: @r16_narrow; }\n    [style='noauto']   { line-width: @r16_noauto; }\n  }\n  [zoom>=17] {\n    [style='standard'] { line-width: @r17_minor; }\n    [style='motorway'] { line-width: @r17_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r17_main; }\n    [style='tertiary'] { line-width: @r17_inter; }\n    [style='urban']{ line-width: @r17_minor; }\n    [style='track']{ line-width: @r17_narrow; }\n    [style='noauto']   { line-width: @r17_noauto; }\n  }\n  [zoom>=18] {\n    [style='motorway'] { line-width: @r18_motorway; }\n    [style='primary'], [style='secondary'] { line-width: @r18_main; }\n    [style='tertiary'] { line-width: @r18_inter; }\n    [style='standard']{ line-width: @r18_minor; }\n    [style='urban']{ line-width: @r18_minor; }\n    [style='track']{ line-width: @r18_narrow; }\n    [style='noauto']   { line-width: @r18_noauto; }\n  }\n}\n\n\n#roads_high[zoom>=11][zoom<=20] {\n  /* -- colors & styles -- */\n  [zoom>=15][structure='bridge'] {\n    bridge/line-cap: butt;\n  }\n  [zoom>=11] {\n    line-cap: round;\n    line-join: round;\n    line-color: @paved;  // Default.\n  }\n  [style='motorway'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@motorway_case, 10%); }\n    [zoom>=11] {\n      line-color: @motorway_fill;\n      [structure='tunnel'] { line-color: lighten(@motorway_fill, 10%); }\n    }\n  }\n  [style='primary'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@primary_case, 10%); }\n    [zoom>=11] {\n      line-color: @primary_fill;\n      [structure='tunnel'] { line-color: lighten(@primary_fill, 10%); }\n    }\n  }\n  [style='secondary'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@secondary_case, 10%); }\n    [zoom>=11] {\n      line-color: @secondary_fill;\n      [structure='tunnel'] { line-color: lighten(@secondary_fill, 10%); }\n    }\n  }\n  [style='tertiary'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@tertiary_case, 10%); }\n    [zoom>=11] {\n      line-color: @tertiary_fill;\n      [structure='tunnel'] { line-color: lighten(@secondary_fill, 10%); }\n    }\n  }\n  [style='standard'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@standard_case, 15%); }\n    [zoom>=11] {\n      line-color: @standard_fill;\n    }\n  }\n  [style=\"urban\"] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@urban_case, 15%); }\n    [zoom>=11][surface='unpaved'] {\n      line-color: @unpaved_case;\n    }\n    [zoom>=11][surface='paved'],\n    [zoom>=15][surface='unpaved'] {\n      line-color: @urban_fill;\n    }\n  }\n  [zoom>=11][surface='unpaved'] {\n    line-color: @unpaved;\n  }\n  [style=\"track\"] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@track_case, 10%); }\n    [zoom>=11] {\n      line-color: @track_fill;\n      line-dasharray: 4,2;\n      line-cap: butt;\n      line-join: round;\n    }\n    [zoom>=16] {line-dasharray: 8,2;}\n    [zoom>=18] {line-dasharray: 10,2;}\n  }\n  [structure='ford'] {\n    line-dasharray: 8,2;\n    line-cap: butt;\n    line-color: darken(@water, 10%);\n  }\n  [style='noauto'] {\n    [zoom>=15][structure='bridge'] { bridge/line-color: darken(@pedestrian_case, 15%); }\n    [zoom>=11] {\n      line-color: @pedestrian_fill;\n      line-cap: round;\n      line-dasharray: 0.1,2;\n      line-comp-op: darken;\n    }\n  }\n  [zoom>=11][condition='bad'][style!='noauto'] {\n    line-dasharray: 5,0.5;\n    line-cap: butt;\n  }\n  [zoom>=11][construction!=null] {\n    line-dasharray: 10,10;\n    line-cap: butt;\n    line-width: 0;\n  }\n  /* -- widths -- */\n  [zoom=11] {\n    [style='urban'], [style='standard'] { line-width: @r11_minor; }\n    [style='motorway'] {\n      line-width: @r11_motorway;\n      [surface='unpaved'] {line-width: @r11_motorway - @c11_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      line-width: @r11_main;\n      [surface='unpaved'] {line-width: @r11_main - @c11_main;}\n    }\n    [style='tertiary'] { line-width: @r11_inter; }\n    [style='urban']{ line-width: @r11_minor; }\n    [style='track']{ line-width: @r11_narrow; }\n    [style='noauto']   { line-width: 0; }\n    [construction!=null] { line-width: 0; }\n  }\n  [zoom=12] {\n    [style='urban'], [style='standard'] { line-width: @r12_minor; }\n    [style='motorway'] {\n      line-width: @r12_motorway;\n      [surface='unpaved'] {line-width: @r12_motorway - @c12_motorway;}\n    }\n    [style='primary'],\n    [style='secondary'] {\n      line-width: @r12_main;\n      [surface='unpaved'] {line-width: @r12_main - @c12_main;}\n    }\n    [style='tertiary'] { line-width: @r12_inter;}\n    [style='urban']{ line-width: @r12_minor; }\n    [style='track']{ line-width: @r12_narrow; }\n    [style='noauto']   { line-width: @r12_noauto; }\n    [construction!=null] { line-width: 0; }\n  }\n  [zoom=13] {\n    [style='standard'] { line-width: @r13_minor - @c13_minor; }\n    [style='urban'] {\n      line-width: @r13_minor - @c13_minor;\n      [surface='unpaved'] {line-width: 0.5;}\n    }\n    [style='motorway'] {\n      line-width: @r13_motorway;\n      [surface='unpaved'] {line-width: @r13_motorway - @c13_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      line-width: @r13_main;\n      [surface='unpaved'] {line-width: @r13_main - @c13_main;}\n    }\n    [style='tertiary'] {\n      line-width: @r13_inter;\n      [surface='unpaved'] {line-width: @r13_inter - @c13_inter;}\n    }\n    [style='track']{line-width: @r13_narrow; }\n    [style='noauto']   { line-width: @r13_noauto; }\n    [construction!=null] { line-width: 0; }\n  }\n  [zoom=14] {\n    [style='standard'] { line-width: @r14_minor - @c14_minor; }\n    [style='urban'] {\n      line-width: @r14_minor - @c14_minor;\n      [surface='unpaved'] {line-width: 0.8;}\n    }\n    [style='motorway'] {\n      line-width: @r14_motorway;\n      [surface='unpaved'] {line-width: @r14_motorway - @c14_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      line-width: @r14_main;\n      [surface='unpaved'] {line-width: @r14_main - @c14_main;}\n    }\n    [style='tertiary'] {\n      line-width: @r14_inter;\n      [surface='unpaved'] {line-width: @r14_inter - @c14_inter;}\n    }\n    [style='track']{ line-width: @r14_narrow; }\n    [style='noauto']   { line-width: @r14_noauto; line-dasharray: 0.1,4; }\n    [construction!=null] { line-width: 0; }\n  }\n  [zoom=15] {\n    [style='standard'], [style='urban'] {\n      [structure='bridge'] {bridge/line-width: @r15_minor;}\n      line-width: @r15_minor - @c15_minor;\n    }\n    [style='motorway'] {\n      [structure='bridge'] {bridge/line-width: @r15_motorway + @c15_motorway;}\n      line-width: @r15_motorway;\n      [surface='unpaved'] {line-width: @r15_motorway - @c15_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      [structure='bridge'] {bridge/line-width: @r15_main + @c15_main;}\n      line-width: @r15_main;\n      [surface='unpaved'] {line-width: @r15_main - @c15_main;}\n    }\n    [style='tertiary'] {\n      [structure='bridge'] {bridge/line-width: @r15_inter + 1;}\n      line-width: @r15_inter;\n      [surface='unpaved'] {line-width: @r15_inter - @c15_inter;}\n    }\n    [style='track']{ line-width: @r15_narrow; }\n    [style='noauto']   {\n      [structure='bridge'] {bridge/line-width: @r15_noauto + 1;}\n      line-width: @r15_noauto; line-dasharray: 0.1,4;\n    }\n    [construction!=null] { line-dasharray: 10,10; }\n  }\n  [zoom=16] {\n    [style='standard'],\n    [style='urban'] {\n      [structure='bridge'] {bridge/line-width: @r16_minor;}\n      line-width: @r16_minor - @c16_minor;\n    }\n    [style='motorway'] {\n      [structure='bridge'] {bridge/line-width: @r16_motorway + @c16_motorway;}\n      line-width: @r16_motorway;\n      [surface='unpaved'] {line-width: @r16_motorway - @c16_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      [structure='bridge'] {bridge/line-width: @r16_main + 2;}\n      line-width: @r16_main;\n      [surface='unpaved'] {line-width: @r16_main - @c16_main;}\n    }\n    [style='tertiary'] {\n      [structure='bridge'] {bridge/line-width: @r16_inter + 1;}\n      line-width: @r16_inter;\n      [surface='unpaved'] {line-width: @r16_inter - @c16_inter;}\n    }\n    [style='track']{ line-width: @r16_narrow - @c16_narrow; }\n    [style='noauto']   {\n      [structure='bridge'] {bridge/line-width: @r16_noauto + 1;}\n      line-width: @r16_noauto;\n      line-dasharray: 0.1,4;\n    }\n    [construction!=null] { line-dasharray: 10,10; }\n  }\n  [zoom=17] {\n    [style='urban'],\n    [style='standard'] {\n      [structure='bridge'] {bridge/line-width: @r17_minor + @c17_minor;}\n      line-width: @r17_minor - @c17_minor;\n    }\n    [style='motorway'] {\n      [structure='bridge'] {bridge/line-width: @r17_motorway + @c17_motorway;}\n      line-width: @r17_motorway;\n      [surface='unpaved'] {line-width: @r17_motorway - @c17_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      [structure='bridge'] {bridge/line-width: @r17_main + @c17_main;}\n      line-width: @r17_main;\n      [surface='unpaved'] {line-width: @r17_main - @c17_main;}\n    }\n    [style='tertiary'] {\n      [structure='bridge'] {bridge/line-width: @r17_inter + @c17_inter;}\n      line-width: @r17_inter;\n      [surface='unpaved'] {line-width: @r17_inter - @c17_inter;}\n    }\n    [style='track']{\n      [structure='bridge'] {bridge/line-width: @r17_narrow + @c17_narrow;}\n      line-width: @r17_narrow - @c17_narrow;\n    }\n    [style='noauto']   {\n      [structure='bridge'] {bridge/line-width: @r17_noauto + @c17_noauto;}\n      line-width: @r17_noauto;\n      line-dasharray: 0.1,6;\n      [type='steps'] {\n        line-cap: butt;\n        line-width: @r17_noauto + @c17_noauto;\n        line-dasharray: 2, 2;\n      }\n    }\n    [construction!=null] { line-dasharray: 15,10; }\n  }\n  [zoom>=18] {\n    [style='urban'],\n    [style='standard'] {\n      [structure='bridge'] {bridge/line-width: @r18_minor + @c18_minor;}\n      line-width: @r18_minor - @c18_minor;\n    }\n    [style='motorway'] {\n      [structure='bridge'] {bridge/line-width: @r18_motorway + @c18_motorway;}\n      line-width: @r18_motorway;\n      [surface='unpaved'] {line-width: @r18_motorway - @c18_motorway;}\n    }\n    [style='primary'], [style='secondary'] {\n      [structure='bridge'] {bridge/line-width: @r18_main + @c18_main;}\n      line-width: @r18_main;\n      [surface='unpaved'] {line-width: @r18_main - @c18_main;}\n    }\n    [style='tertiary'] {\n      [structure='bridge'] {bridge/line-width: @r18_inter + @c18_inter;}\n      line-width: @r18_inter;\n      [surface='unpaved'] {line-width: @r18_inter - @c18_inter;}\n    }\n    [style='track']{\n      [structure='bridge'] {bridge/line-width: @r18_narrow + @c18_narrow;}\n      line-width: @r18_narrow - @c18_narrow;\n    }\n    [style='noauto']   {\n      [structure='bridge'] {bridge/line-width: @r18_noauto + @c18_noauto;}\n      line-width: @r18_noauto;\n      line-dasharray: 0.1,6;\n      [type='steps'] {\n        line-cap: butt;\n        line-width: @r18_noauto + @c18_noauto;\n        line-dasharray: 2,2;\n      }\n    }\n    [construction!=null] { line-dasharray: 15,15; }\n  }\n}\n\n/* ---- Turning Circles --------------------------------------------- */\n#turning_circle_case[zoom>=14] {\n  marker-fill:@standard_fill;\n  marker-line-color:@standard_case;\n  marker-line-width:2;\n  marker-allow-overlap: true;\n}\n#turning_circle_fill[zoom>=14] {\n  marker-fill: @standard_fill;\n  marker-line-width: 0;\n  marker-line-opacity: 0;\n  marker-allow-overlap: true;\n}\n#turning_circle_case,\n#turning_circle_fill {\n  [zoom=14] { marker-width: @r14_minor * 1.1; }\n  [zoom=15] { marker-width: @r15_minor * 1.1; }\n  [zoom=16] { marker-width: @r16_minor * 1.1; }\n  [zoom=17] { marker-width: @r17_minor * 1.1; }\n  [zoom>=18] { marker-width: @r18_minor * 1.1; }\n}\n\n/* ================================================================== */\n/* FERRIES\n/* ================================================================== */\n\n#ferry[zoom>=9] {\n  line-color: @ferry;\n  line-width: 0.5;\n  line-dasharray: 4, 4;\n  [zoom>=13] {\n    line-width: 0.8;\n    line-dasharray: 6, 6;\n  }\n}\n\n/* ================================================================== */\n/* AEROWAYS\n/* ================================================================== */\n\n#aeroway[zoom>=14] {\n  line-color:@aeroway;\n  line-cap:butt;\n  line-join:miter;\n  [type='runway'] {\n    [zoom=14]{ line-width:7; }\n    [zoom=15]{ line-width:11; }\n    [zoom=16]{ line-width:15; }\n    [zoom=17]{ line-width:19; }\n    [zoom>17]{ line-width:23; }\n  }\n  [type='taxiway'] {\n    [zoom=14]{ line-width:1.5; }\n    [zoom=15]{ line-width:2; }\n    [zoom=16]{ line-width:3; }\n    [zoom=17]{ line-width:4; }\n    [zoom>17]{ line-width:5; }\n  }\n  [tunnel='yes'][zoom>=14][zoom<=20] {\n    line-color: @land;\n    line-join: round;\n    /* -- widths -- */\n    [zoom=14] { line-width: 1 + 1; }\n    [zoom=15] { line-width: 1.5 + 1; }\n    [zoom=16] { line-width: 2 + 1; }\n    [zoom=17] { line-width: 3 + 2; }\n    [zoom>=18] { line-width: 4 + 3; }\n  }\n}\n#aeroway-poly[zoom>=14] {\n  polygon-fill: @aeroway;\n}\n/******************************************************************* */\n\n\n/* ================================================================== */\n/* RAILWAY\n/* ================================================================== */\n\n#railway[type='disused'][zoom>=14][zoom<=20] {\n  line-cap: butt;\n  line-color: darken(@rail_line,20%);\n  [zoom>=14] { line-width: 0.35; line-dasharray: 4,2;}\n  [zoom>=15] { line-width: 0.55; line-dasharray: 4,2;}\n  [zoom>=16] { line-width: 1; line-dasharray: 7,4; }\n  [zoom>=18] { line-width: 1.75; line-dasharray: 10,6;}\n}\n\n#railway[type='yard'][zoom>=15][zoom<=20] {\n  line-cap: butt;\n  line-color: @rail_line;\n  [zoom>=15] { line-width: 0.35; }\n  [zoom>=16] { line-width: 1.5; }\n  [zoom>=18] { line-width: 2.25; }\n}\n\n#railway[type='main'][zoom>=12][zoom<=20] {\n  line-cap: butt;\n  line-color: @rail_line;\n  [zoom>=11] { line-width: 1; }\n  [zoom>=14] { line-width: 1.25; }\n  [zoom>=16] { line-width: 1.75; }\n  [zoom>=18] { line-width: 2; }\n  [zoom>=20] { line-width: 2.25; }\n}\n\n#railway[type='other'][zoom>=14][zoom<=20] {\n  line-cap: butt;\n  line-color: @rail_line;\n  [zoom>=14] { line-width: 1; }\n  [zoom>=16] { line-width: 1.5; }\n  [zoom>=18] { line-width: 1.75; }\n  [zoom>=20] { line-width: 2; }\n}\n"
+        },
+        {
+            "id": "poi.mss",
+            "data": ".poi::mainprio[zoom>=14] {\n        [main='police'],\n        [main='cafe'],\n        [main='restaurant'],\n        [main='toilets'],\n        [main='shower'],\n        [main='fuel'],\n        [main='fast_food'],\n        [main='car_parts'],\n        [main='supermarket'],\n        [main='bakery'],\n        [main='car_repair'],\n        [main='fire_station'],\n        [main='shop'],\n        [main='doctors'],\n        [main='information'],\n        [main='hostel'],\n        [main='hotel'],\n        [main='motel'],\n        [main='clinic'],\n        [main='hospital'],\n        [main='tyres'] {\n            marker-file: url('icons/poi/[main].svg');\n            marker-clip:false;\n            marker-width: 12;\n        }\n}\n.poi::high[zoom>=17] {\n        [main='school'],\n        [main='aeroway'],\n        [main='bank'],\n        [main='government'],\n        [main='pharmacy'],\n        [main='townhall'],\n        [main='taxi'],\n        [main='car_rental'],\n        [main='money_transfer'],\n        [main='dentist'],\n        [main='bureau_de_change'],\n        [main='telephone'],\n        [main='university'],\n        [main='mobile_phone'],\n        [main='tailor'],\n        [main='computer'],\n        [main='clothes'],\n        [main='butcher'],\n        [main='hardware'],\n        [main='atm'],\n        [main='post_office'],\n        [main='government'] {\n            marker-file: url('icons/poi/[main].svg');\n            marker-clip:false;\n        }\n}\n"
+        },
+        {
+            "id": "labels.mss",
+            "data": "/* LABELS.MSS CONTENTS:\n * - Place names\n * - POI labels\n * - Area labels\n * - Waterway labels\n * - Road labels\n * - Oneway arrows\n * - Admin labels\n * - Housenumbers\n */\n\n/* Font sets are defined in palette.mss */\n\n/* Mapnik does not yet support character-spacing adjustments for\n   labels placed along a line. We can fake this using the replace()\n   function in the text-name parameter by replacing each character\n   with itself followed by one or more spaces. */\n\n/* ================================================================== */\n/* PLACE NAMES\n/* ================================================================== */\n\n/* ---- Countries --------------------------------------------------- */\n\n#low_place[type='country'][zoom>=3][zoom<=7] {\n  text-name:'[name]';\n  text-face-name: @bold;\n  text-placement: point;\n  text-fill: @country_text;\n  text-halo-fill: @country_halo;\n  text-halo-radius: 1;\n  [zoom=3] {\n    text-size: 9;\n    text-wrap-width: 40;\n  }\n  [zoom>=4] {\n    text-size: 11;\n    text-wrap-width: 50;\n  }\n  [zoom>=5] {\n    text-halo-radius: 2;\n    text-wrap-width: 50;\n    text-line-spacing: 1;\n  }\n  [zoom=6] {\n    text-size: 13;\n    text-character-spacing: 0;\n    text-wrap-width: 80;\n    text-line-spacing: 2;\n  }\n  [zoom=7] {\n    text-size: 14;\n    text-character-spacing: 1;\n  }\n}\n\n/* ---- States ------------------------------------------------------ */\n\n#low_place[type='state'][zoom>=5][zoom<=10] {\n  text-name:'[name]';\n  text-face-name: @bold;\n  text-placement: point;\n  text-fill: @state_text;\n  text-halo-fill: @state_halo;\n  text-halo-radius: 1;\n  [zoom=5] {\n    text-size:9 + @text_adjust;\n    text-wrap-width: 35;\n  }\n  [zoom=6] {\n    text-size:10 + @text_adjust;\n    text-wrap-width: 40;\n  }\n  [zoom=7] {\n    text-size:11 + @text_adjust;\n    text-wrap-width: 50;\n  }\n  [zoom>8] {\n    text-halo-radius: 2;\n  }\n  [zoom=8] {\n    text-size:11 + @text_adjust;\n    text-wrap-width: 50;\n    text-line-spacing: 1;\n  }\n  [zoom=9] {\n    text-size:12 + @text_adjust;\n    text-character-spacing: 1;\n    text-wrap-width: 80;\n    text-line-spacing: 2;\n  }\n  [zoom=10] {\n    text-size:14 + @text_adjust;\n    text-character-spacing: 2;\n  }\n}\n\n/* ---- Cities and Towns ----------------------------------------------- */\n\n#low_place[is_capital='country'][zoom>=4][zoom<=10],\n#low_place[type='city'][zoom>=7][zoom<=10],\n#low_place[type='town'][zoom>=9][zoom<=10] {\n  shield-file: url('icons/place/town.png');\n  [type='city'] {\n    shield-file: url('icons/place/city.png');\n  }\n  [is_capital='country'] {\n    shield-file: url('icons/place/country_capital.png');\n  }\n  shield-name:'[name]';\n  shield-size: 9;\n  shield-face-name: @medium;\n  shield-halo-radius: 1;\n  shield-wrap-width: 50;\n  shield-fill: @town_text;\n  shield-halo-fill: @town_halo;\n  shield-placement-type: simple;\n  shield-placements: 'NE,SW,NW,SE,E,W';\n  shield-text-dy: 3;\n  shield-text-dx: 3;\n  shield-unlock-image: true;\n  shield-min-distance: 10;\n  [type='city'] {\n    shield-fill: @city_text;\n    shield-halo-fill: @city_halo;\n    shield-size: 10;\n  }\n  [is_capital='country'] {\n    shield-face-name: @bold;\n    shield-fill: @capital_text;\n    shield-halo-fill: @capital_halo;\n    shield-size: 11;\n    shield-line-spacing: -2;\n    shield-text-dx: 4;\n  }\n  [zoom>=10] {\n    shield-halo-radius: 2;\n    shield-size: 10;\n    [type='city'] { shield-size: 11;}\n    [is_capital='country'] { shield-size: 11;}\n  }\n}\n\n#place[type='city'][zoom>=11][zoom<=15],\n#place[type='town'][zoom>=11][zoom<=17] {\n  text-name:'[name]';\n  text-size: 11;\n  text-face-name: @medium;\n  text-halo-radius: 2;\n  text-wrap-width: 50;\n  text-fill: @town_text;\n  text-halo-fill: @town_halo;\n  text-character-spacing: -1;\n  [type='city'] {\n    text-fill: @city_text;\n    text-halo-fill: @city_halo;\n    text-size: 12;\n  }\n  [is_capital='country'] {\n    text-face-name: @bold;\n    text-fill: @capital_text;\n    text-halo-fill: @capital_halo;\n    text-line-spacing: -2;\n    text-transform: uppercase;\n  }\n  [zoom>=12] {\n    text-size: 12;\n    [type='city'],\n    [is_capital='country'] { text-size: 13;}\n  }\n  [zoom>=13] {\n    text-transform: uppercase;\n    text-character-spacing: 0;\n    [type='city'],\n    [is_capital='country'] { text-size: 14;}\n  }\n  [zoom>=14]{\n    text-size:13;\n    text-character-spacing: 1;\n    [type='city'],\n    [is_capital='country'] { text-size: 15;}\n  }\n  [zoom>=15]{\n    text-size:14;\n    text-character-spacing: 2;\n    [type='city'],\n    [is_capital='country'] { text-size: 16;}\n  }\n  [zoom>=16]{\n    text-size:15;\n    text-line-spacing: 5;\n  }\n  [zoom>=17]{\n    text-size:16;\n    text-line-spacing: 6;\n  }\n}\n\n\n\n/* ---- Other small places ------------------------------------------ */\n\n#place::small[type='village'][zoom>=11][zoom<=20],\n#place::small[type='suburb'][zoom>=13][zoom<=20],\n#place::small[type='hamlet'][zoom>=13][zoom<=20],\n#place::small[type='neighbourhood'][zoom>=13][zoom<=20] {\n  text-name:'[name]';\n  text-face-name:@medium;\n  text-placement:point;\n  text-fill:@other_text;\n  text-size:10;\n  text-halo-fill:@other_halo;\n  text-halo-radius:1;\n  text-wrap-width: 30;\n  text-min-distance: 100;\n  text-avoid-edges: true;\n  text-label-position-tolerance: 10;\n  [zoom>=13] {\n    text-min-distance: 50;\n  }\n  [zoom>=14] {\n    text-size:11;\n    text-character-spacing: 0;\n    text-wrap-width: 40;\n    text-line-spacing: 1;\n  }\n  [zoom>=15] {\n    text-halo-radius: 2;\n    text-transform: uppercase;\n    text-character-spacing: 0;\n    text-wrap-width: 60;\n    text-line-spacing: 1;\n    text-min-distance: 30;\n  }\n  [zoom>=16] {\n    text-size:12;\n    text-character-spacing: 1;\n    text-wrap-width: 120;\n    text-line-spacing: 2;\n    text-min-distance: 10;\n  }\n  [zoom>=17] {\n    text-size:13;\n    text-character-spacing: 2;\n    text-wrap-width: 160;\n    text-line-spacing: 4;\n  }\n  [zoom>=18] {\n    text-size:14;\n    text-character-spacing: 3;\n    text-line-spacing: 6;\n  }\n}\n\n#place::small[type='locality'][zoom>=15] {\n  text-name:'[name]';\n  text-face-name:@medium;\n  text-placement:point;\n  text-fill:@locality_text;\n  text-size:9;\n  text-halo-fill:@locality_halo;\n  text-halo-radius:1;\n  text-wrap-width: 30;\n  [zoom>=16] {\n    text-size:10;\n    text-wrap-width: 60;\n    text-line-spacing: 1;\n  }\n  [zoom>=17] {\n    text-size:11;\n    text-wrap-width: 120;\n    text-line-spacing: 2;\n  }\n  [zoom>=18] {\n    text-size:12;\n    text-character-spacing: 0;\n    text-line-spacing: 4;\n  }\n}\n\n\n// =====================================================================\n// POI LABELS\n// =====================================================================\n.poi::label[zoom>=15] {\n    text-name: \"\";\n    text-face-name: @medium;\n    text-size: 10;\n    text-wrap-width: 30;\n    text-fill: @poi_text;\n    text-halo-fill: @poi_halo;\n    text-dy: 12;\n    text-dx: 12;\n    text-placement: point;\n    text-halo-radius: 1;\n    text-label-position-tolerance: 18;\n    text-placement-type: simple;\n    text-placements: \"S,N,W,E\";\n    text-avoid-edges: true;\n    text-clip: false;\n    text-character-spacing: -0.5;\n    \n    [main='police'],\n    [main='cafe'],\n    [main='restaurant'],\n    [main='toilets'],\n    [main='shower'],\n    [main='fuel'],\n    [main='fast_food'],\n    [main='car_parts'],\n    [main='supermarket'],\n    [main='bakery'],\n    [main='car_repair'],\n    [main='fire_station'],\n    [main='shop'],\n    [main='doctors'],\n    [main='information'],\n    [main='hostel'],\n    [main='hotel'],\n    [main='motel'],\n    [main='clinic'],\n    [main='hospital'],\n    [main='tyres'] {\n       text-name: \"[name]\";\n       text-face-name: @bold;\n    }\n    \n    [zoom>=17] {\n        [main='school'],\n        [main='aeroway'],\n        [main='bank'],\n        [main='government'],\n        [main='pharmacy'],\n        [main='townhall'],\n        [main='taxi'],\n        [main='car_rental'],\n        [main='money_transfer'],\n        [main='dentist'],\n        [main='bureau_de_change'],\n        [main='telephone'],\n        [main='university'],\n        [main='mobile_phone'],\n        [main='tailor'],\n        [main='computer'],\n        [main='clothes'],\n        [main='butcher'],\n        [main='hardware'],\n        [main='atm'],\n        [main='post_office'],\n        [main='government'] {\n            text-name: \"[name]\";\n        }\n    }\n}\n\n// =====================================================================\n// AREA LABELS\n// =====================================================================\n\n#area_label {\n  // Bring in labels gradually as one zooms in, bases on polygon area\n  [zoom>=12][area>102400000],\n  [zoom>=13][area>25600000],\n  [zoom>=14][area>1600000],\n  [zoom>=15][area>320000],\n  [zoom>=16][area>80000],\n  [zoom>=17][area>20000],\n  [zoom>=18][area>5000],\n  [zoom>=19][area>=0] {\n    text-name: \"[name]\";\n    text-halo-radius: 1.5;\n    text-face-name: @medium;\n    text-size: 11;\n    text-wrap-width: 30;\n    text-fill: #888;\n    text-halo-fill: #fff;\n    // Specific style overrides for different types of areas:\n    [type='park'][zoom>=10] {\n      text-face-name: @regular;\n      text-fill: @park * 0.6;\n      text-halo-fill: lighten(@park, 10);\n    }\n    [type='hospital'][zoom>=10] {\n      text-fill: @hospital * 0.6;\n      text-halo-fill: lighten(@hospital, 10);\n    }\n    [type='college'][zoom>=10],\n    [type='school'][zoom>=10],\n    [type='university'][zoom>=10] {\n      text-fill: @school * 0.6;\n      text-halo-fill: lighten(@school, 10);\n    }\n    [type='water'][zoom>=10] {\n      text-fill: @water * 0.6;\n      text-halo-fill: lighten(@water, 10);\n    }\n  }\n  [zoom=15][area>1600000],\n  [zoom=16][area>80000],\n  [zoom=17][area>20000],\n  [zoom=18][area>5000] {\n    text-name: \"[name]\";\n    text-size: 13;\n    text-wrap-width: 60;\n    text-character-spacing: 0;\n    text-halo-radius: 2;\n  }\n  [zoom=16][area>1600000],\n  [zoom=17][area>80000],\n  [zoom=18][area>20000] {\n    text-size: 15;\n    text-character-spacing: 1;\n    text-wrap-width: 120;\n  }\n  [zoom>=17][area>1600000],\n  [zoom>=18][area>80000] {\n    text-size: 20;\n    text-character-spacing: 2;\n    text-wrap-width: 180;\n  }\n}\n\n\n/* ================================================================== */\n/* WATERWAY LABELS\n/* ================================================================== */\n\n#waterway_label[type='river'][zoom>=13],\n#waterway_label[type='canal'][zoom>=15],\n#waterway_label[type='stream'][zoom>=17] {\n  text-name: '[name]';\n  text-face-name: @medium;\n  text-fill: darken(@water,20%);\n  text-halo-fill: @other_halo;\n  text-halo-radius: 1;\n  text-placement: line;\n  text-min-distance: 400;\n  text-size: 10;\n  text-dy: 7;\n  [type='river'][zoom=14],\n  [type='canal'][zoom=16],\n  [type='stream'][zoom=18] {\n    text-name: \"[name].replace('([\\S\\ ])','$1 ')\";\n  }\n  [type='river'][zoom=15],\n  [type='canal'][zoom=17] {\n    text-size: 11;\n    text-name: \"[name].replace('([\\S\\ ])','$1 ')\";\n  }\n  [type='river'][zoom>=16],\n  [type='canal'][zoom>=18] {\n    text-size: 14;\n    text-name: \"[name].replace('([\\S\\ ])','$1 ')\";\n    text-spacing: 300;\n  }\n}\n\n/* ================================================================== */\n/* ROAD LABELS\n/* ================================================================== */\n\n#motorway_label[type='motorway'][zoom>9],\n#motorway_label[type='trunk'][zoom>9] {\n  text-name: '[name]';\n  text-face-name: @bold;\n  text-placement: line;\n  text-fill: @road_text;\n  text-halo-fill: @road_halo;\n  text-halo-radius: 1;\n  text-min-distance: 60;\n  text-size: 11;\n  text-avoid-edges: true;\n  text-character-spacing: -0.1;\n  [zoom=11] { text-min-distance: 70; }\n  [zoom=12] { text-min-distance: 80; }\n  [zoom=13] { text-min-distance: 100; }\n}\n\n#mainroad_label[type='primary'][zoom>12],\n#mainroad_label[type='secondary'][zoom>13],\n#mainroad_label[type='tertiary'][zoom>13] {\n  text-name: '[name]';\n  text-face-name: @medium;\n  text-placement: line;\n  text-fill: @road_text;\n  text-halo-fill: @road_halo;\n  text-halo-radius: 1;\n  text-min-distance: 60;\n  text-size: 11;\n  text-avoid-edges: true;\n  text-character-spacing: -0.1;\n}\n\n#minorroad_label[zoom>14] {\n  text-name: '[name]';\n  text-face-name: @medium;\n  text-placement: line;\n  text-fill: @road_text;\n  text-halo-fill: @road_halo;\n  text-halo-radius: 1;\n  text-min-distance: 60;\n  text-size: 11;\n  text-avoid-edges: true;\n  // text-character-spacing: -0.5;\n}\n\n/* ================================================================== */\n/* ONE-WAY ARROWS\n/* ================================================================== */\n\n#motorway_label[oneway!='no'][zoom>=16],\n#mainroad_label[oneway!='no'][zoom>=16],\n#minorroad_label[oneway!='no'][zoom>=16] {\n  marker-placement:line;\n  marker-max-error: 0.5;\n  marker-spacing: 200;\n  marker-file: url('icons/oneway.svg');\n  [oneway='-1'] { marker-file: url('icons/oneway-reverse.svg'); }\n  [zoom=16] { marker-transform: \"scale(0.5)\"; }\n  [zoom=17] { marker-transform: \"scale(0.75)\"; }\n}\n\n\n/* ****************************************************************** */\n\n/* ================================================================== */\n/* ADMIN LABELS\n/* ================================================================== */\n\n#admin-label-1-4[zoom>=10],\n#admin-label-5-10[zoom>=13] {\n  text-name: \"'      '+[name]+'      '\";\n  text-fill: @admin_2_text;\n  text-size: 10;\n  text-placement: line;\n  text-dy: -7;\n  text-face-name: @regular;\n  text-halo-radius: 2;\n  text-halo-fill: @place_halo;\n  text-min-padding: 50;\n  text-min-distance: 50;\n  text-spacing: 300;\n  text-max-char-angle-delta: 10;\n}\n\n\n/* ================================================================== */\n/* HOUSENUMBERS\n/* ================================================================== */\n\n\n#housenumber[zoom>=17]{\n  text-name: \"[housenumber]\";\n  text-placement: interior;\n  text-face-name: @medium;\n  text-fill: @housenumber_text;\n  text-halo-fill: @road_halo;\n  text-halo-radius: 1;\n  text-size: 7;\n  [zoom=17][mod5='no'] {\n    text-name: \"\";\n  }\n  [zoom >= 18] {\n    text-size: 9;\n  }\n}\n\n/* ================================================================== */\n/* NATURAL\n/* ================================================================== */\n\n#natural_point_label[type='bay'][zoom>=10] {\n  text-name: '[name]';\n  text-face-name: @medium;\n  text-fill: darken(@water,30%);\n  text-halo-fill: lighten(@water,10%);\n  text-halo-radius: 1;\n  text-size: 11;\n}\n\n"
+        }
+    ],
+    "Layer": [
+        {
+            "Datasource": {
+                "file": "DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp",
+                "type": "shape"
+            },
+            "class": "shp",
+            "geometry": "polygon",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "status": "on",
+            "id": "land-low",
+            "layerId": "land-low"
+        },
+        {
+            "id": "land-high",
+            "Datasource": {
+                "file": "DEM/data/land-polygons-split-3857/land_polygons.shp",
+                "type": "shape"
+            },
+            "class": "shp",
+            "geometry": "polygon",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "status": "on",
+            "layerId": "land-high"
+        },
+        {
+            "id": "landuse_gen0",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type, tags->'landfill:type' as landfill_type\n  FROM\n    planet_osm_polygon\n  WHERE\n    way_area > 100000 ORDER BY way_area DESC\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "landuse_gen0"
+        },
+        {
+            "id": "landuse_gen1",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type, tags->'landfill:type' as landfill_type FROM planet_osm_polygon WHERE way_area > 10000 AND COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) IS NOT NULL ORDER BY way_area DESC ) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "landuse_gen1"
+        },
+        {
+            "id": "landuse",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type, tags->'landfill:type' as landfill_type\nFROM planet_osm_polygon\nWHERE COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) IS NOT NULL\nORDER BY way_area DESC) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "landuse"
+        },
+        {
+            "geometry": "raster",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "id": "hillshade",
+            "Datasource": {
+                "file": "DEM/data/hillshade.vrt",
+                "type": "gdal"
+            },
+            "srs-name": 900913,
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "status": "off",
+            "layerId": "hillshade"
+        },
+        {
+            "geometry": "linestring",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "id": "contour_line",
+            "Datasource": {
+                "file": "DEM/data/contour-25m.shp",
+                "type": "shape"
+            },
+            "srs-name": "autodetect",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "status": "off",
+            "layerId": "contour_line"
+        },
+        {
+            "id": "waterway_low",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, waterway AS type,\nCASE WHEN intermittent IN ('yes') OR tags@> hstore('seasonal','yes') THEN 'yes'\nELSE 'no' END AS seasonal\nFROM planet_osm_line\nWHERE waterway IN ('river', 'canal')) as h2olow"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "waterway_low"
+        },
+        {
+            "id": "waterway_med",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, waterway AS type,\nCASE WHEN intermittent IN ('yes') OR tags@> hstore('seasonal','yes') THEN 'yes'\nELSE 'no' END AS seasonal\nFROM planet_osm_line\nWHERE waterway IN ('river', 'canal', 'stream')) as h2o"
+            },
+            "layerId": "waterway_med"
+        },
+        {
+            "id": "waterway_high",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, waterway AS type,\nCASE WHEN intermittent IN ('yes') OR tags@> hstore('seasonal','yes') THEN 'yes'\nELSE 'no' END AS seasonal\nFROM planet_osm_line\nWHERE waterway IN ('river', 'canal', 'stream', 'ditch', 'drain')) as h2o"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "waterway_high"
+        },
+        {
+            "id": "water_gen0",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, \"natural\" AS type, way_area AS area\n  FROM planet_osm_polygon\n  WHERE (\"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank'))\n    AND way_area > 10000\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "water_gen0"
+        },
+        {
+            "id": "water_gen1",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, \"natural\" AS type, way_area AS area\n  FROM planet_osm_polygon\n  WHERE (\"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank'))\n    AND way_area > 1000\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "water_gen1"
+        },
+        {
+            "id": "water",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'dock')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "water"
+        },
+        {
+            "id": "landuse_overlays",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, way_area AS area, COALESCE(leisure) AS type\n  FROM planet_osm_polygon\n  WHERE leisure = 'nature_reserve'\n  ORDER BY way_area DESC\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "landuse_overlays"
+        },
+        {
+            "id": "admin-high",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    ST_Intersection(way, !bbox!) AS way, admin_level::integer,\n    CASE WHEN tags->'maritime'='yes' THEN 'yes' ELSE 'no' END AS maritime\n  FROM\n    planet_osm_roads\n  WHERE\n    \"boundary\" = 'administrative'\n    AND admin_level IN ('1','2','3','4', '5', '6', '7', '8', '9', '10')\n    AND \"boundary\" IS NOT NULL\n    AND way && !bbox!\n  ORDER BY\n    admin_level DESC\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "admin-high"
+        },
+        {
+            "id": "admin-med",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    ST_Intersection(way, !bbox!) AS way, admin_level::integer,\n    CASE WHEN tags->'maritime'='yes' THEN 'yes' ELSE 'no' END AS maritime\n  FROM\n    planet_osm_roads\n  WHERE\n    \"boundary\" = 'administrative'\n    AND admin_level IN ('1','2','3','4', '5', '6', '7', '8')\n    AND \"boundary\" IS NOT NULL\n    AND way && !bbox!\n  ORDER BY\n    admin_level DESC\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "admin-med"
+        },
+        {
+            "id": "admin-low",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, admin_level::integer,\n    CASE WHEN tags->'maritime'='yes' THEN 'yes' ELSE 'no' END AS maritime\n  FROM\n    planet_osm_roads\n  WHERE\n    \"boundary\" = 'administrative'\n    AND admin_level IN ('1','2','3','4')\n    AND \"boundary\" IS NOT NULL\n  ORDER BY\n    admin_level DESC\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "admin-low"
+        },
+        {
+            "id": "buildings",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, CASE WHEN amenity IS NOT NULL or shop IS NOT NULL THEN 'yes' ELSE 'no' END AS poi, building AS type\n  FROM\n    planet_osm_polygon\n  WHERE\n    building NOT IN ('0','false', 'no')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "buildings"
+        },
+        {
+            "id": "aeroway-poly",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, aeroway AS type, tunnel FROM planet_osm_polygon WHERE aeroway IN ('apron', 'runway', 'taxiway')) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "aeroway-poly"
+        },
+        {
+            "id": "aeroway",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, aeroway AS type, tunnel FROM planet_osm_line\n  WHERE aeroway IN ('apron', 'runway', 'taxiway')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "aeroway"
+        },
+        {
+            "id": "turning_circle_case",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way \n  FROM planet_osm_point \n  WHERE highway = 'turning_circle'\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "turning_circle_case"
+        },
+        {
+            "id": "roads_high",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, name, access, construction, stratum, type,\n    CASE\n      WHEN smoothness IN ('bad', 'very_bad', 'horrible', 'very_horrible') THEN 'bad'\n      ELSE 'good'\n    END AS condition,\n    CASE\n      WHEN surface IN ('paved', 'paving_stones', 'asphalt', 'concrete') THEN 'paved'\n      WHEN (surface IS NULL AND type IN ('trunk', 'trunk_link', 'motorway', 'motorway_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link')) THEN 'paved'\n      ELSE 'unpaved'\n    END AS surface,\n    CASE\n      WHEN tunnel IS NOT NULL AND tunnel!='no' THEN 'tunnel'\n      WHEN bridge IS NOT NULL AND bridge!='no' THEN 'bridge'\n      WHEN ford IS NOT NULL AND ford!='no' THEN 'ford'\n      ELSE NULL\n    END AS structure,\n    CASE\n      WHEN type IN ('motorway', 'trunk', 'trunk_link') THEN 'motorway'\n      WHEN type ~ E'\\\\w+_link$' THEN regexp_replace(type, '_link', '')\n      WHEN type IN ('unclassified', 'road', 'service') THEN 'standard'\n      WHEN type IN ('residential', 'living_street') THEN 'urban'\n      WHEN type IN ('path', 'cycleway', 'footway', 'pedestrian', 'steps', 'bridleway') THEN 'noauto'\n      ELSE type\n    END AS style\n  FROM\n    ( SELECT\n        way, name, bridge, access, surface, tunnel, tags->'smoothness' AS smoothness, tags->'ford' AS ford, layer, tags->'narrow' AS narrow, construction,\n        CASE\n          WHEN layer ~ E'^-?\\\\d{1,4}$' THEN layer::integer\n          ELSE 0\n        END AS stratum,\n        CASE\n          WHEN highway='construction' AND construction IS NOT NULL THEN construction\n          ELSE highway\n        END AS type,\n        CASE\n          WHEN highway IN ('trunk', 'motorway') THEN 1\n          WHEN highway IN ('primary', 'secondary', 'tertiary') THEN 10\n          WHEN highway IN ('tertiary') THEN 100\n          ELSE 1000\n        END AS prio\n      FROM\n        planet_osm_line\n      WHERE\n        highway IS NOT NULL\n        AND way && !bbox!\n      ORDER BY\n        stratum, prio DESC, z_order\n    ) as a\n  WHERE\n    a.type!='construction' and (a.construction!='yes' OR a.construction IS NULL)\n  ) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "roads_high"
+        },
+        {
+            "id": "ferry",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, route, name, z_order FROM planet_osm_line WHERE route IS NOT NULL AND route='ferry' ORDER BY z_order) as ferry"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "ferry"
+        },
+        {
+            "id": "railway",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, tunnel, bridge, railway, service, CASE WHEN railway in ('spur','siding') or (railway='rail' and service in ('spur','siding','yard')) THEN 'yard' WHEN railway='disused' THEN 'disused' WHEN railway='rail' THEN 'main' ELSE 'other' END AS type FROM planet_osm_line WHERE railway IS NOT NULL AND railway!='abandoned' ORDER BY z_order) as rail"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "railway"
+        },
+        {
+            "id": "roads_med",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, highway AS type\n\n  FROM planet_osm_roads\n\n  WHERE highway IN ('motorway', 'trunk', 'primary', 'secondary',\n'motorway_link', 'trunk_link')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "roads_med"
+        },
+        {
+            "id": "roads_low",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, highway AS type, bridge, tunnel\n    FROM planet_osm_roads\n    WHERE highway IN ('motorway', 'trunk')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "roads_low"
+        },
+        {
+            "id": "turning_circle_fill",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way \n  FROM planet_osm_point\n  WHERE highway = 'turning_circle'\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "turning_circle_fill"
+        },
+        {
+            "id": "barrier_lines",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "barriers",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "(select way, barrier from planet_osm_line where barrier is not null) as data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "barrier_lines"
+        },
+        {
+            "id": "barrier_areas",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "barriers",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way,barrier,\"natural\"\n  FROM\n    planet_osm_polygon\n  WHERE\n    barrier IS NOT NULL OR \"natural\"='hedge'\n) AS barriers"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "barrier_areas"
+        },
+        {
+            "id": "airport-point",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "airport",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "(select way,name,CASE WHEN tags ? 'iata' THEN 'airport' WHEN aeroway='aerodrome' THEN 'airfield' ELSE null END AS aeroway FROM planet_osm_point WHERE aeroway='aerodrome') as data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "airport-point"
+        },
+        {
+            "id": "airport-poly",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "airport",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "(select way,name,CASE WHEN tags ? 'iata' THEN 'airport' WHEN aeroway='aerodrome' THEN 'airfield' ELSE null END AS aeroway FROM planet_osm_polygon WHERE aeroway='aerodrome') as data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "airport-poly"
+        },
+        {
+            "id": "poi-point",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "poi",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, name, COALESCE(amenity, leisure, shop, tourism, office, highway, tags->'emergency', barrier) AS main, man_made, religion,\n    CASE WHEN shop IS NOT NULL AND shop!='no' THEN shop ELSE NULL END AS shop,\n    tags->'craft' as craft, tags->'pump' as pump, tags->'drinking_water' as drinking_water, \"tower:type\", power, tags->'content' AS content, lower(operator) AS operator\n  FROM\n    planet_osm_point\n  WHERE\n    amenity IS NOT NULL OR shop IS NOT NULL OR tags ? 'craft'\n    OR tourism IN ('alpine_hut','camp_site','caravan_site','guest_house','hostel','hotel','motel','museum','viewpoint','bed_and_breakfast','information','chalet')\n    OR highway IN ('bus_stop','traffic_signals','ford', 'street_lamp')\n    OR man_made IN ('mast','water_tower', 'tower', 'water_well', 'watermill', 'storage_tank')\n    OR historic IN ('memorial','archaeological_site')\n    OR leisure IN ('playground','slipway', 'beach_resort')\n    OR office IN ('ngo', 'government') OR tags @> hstore ('emergency', 'fire_hydrant')\n    OR power IN ('generator', 'sub_station', 'tower', 'pole') OR barrier IN ('border_control')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "poi-point"
+        },
+        {
+            "id": "poi-poly",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "poi",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    way, name, COALESCE(amenity, leisure, shop, tourism, office, highway, tags->'emergency', barrier) AS main, man_made, religion,\n    CASE WHEN shop IS NOT NULL AND shop!='no' THEN shop ELSE NULL END AS shop,\n    tags->'craft' as craft, tags->'pump' as pump, tags->'drinking_water' as drinking_water, \"tower:type\",\n    power, tags->'content' AS content, lower(operator) AS operator\n  FROM\n    planet_osm_polygon\n  WHERE\n    amenity IS NOT NULL OR shop IS NOT NULL\n    OR tourism IN ('alpine_hut','camp_site','caravan_site','guest_house','hostel','hotel','motel','museum','viewpoint','bed_and_breakfast','information','chalet')\n    OR highway IN ('bus_stop','traffic_signals') OR historic in ('memorial','archaeological_site') OR leisure='playground'\n    OR power IN ('plant', 'sub_station') OR office IN ('ngo', 'government')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "poi-poly"
+        },
+        {
+            "id": "low_place",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, CASE WHEN place='country' THEN 1 WHEN capital='yes' AND admin_level='2' THEN 10 WHEN place='state' THEN 20 WHEN place='city' THEN 21 WHEN place='town' THEN 30 ELSE 100 END as prio, place AS type, name, z_order, CASE WHEN population ~ E'^\\d{1,9}$' THEN population::integer ELSE NULL END AS population, CASE WHEN capital='yes' AND admin_level='2' THEN 'country' ELSE NULL END AS is_capital FROM planet_osm_point WHERE place in ('country', 'state', 'city', 'town') AND place IS NOT NULL ORDER BY prio, population DESC NULLS LAST) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "low_place"
+        },
+        {
+            "id": "place",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, CASE WHEN place='country' THEN 1 WHEN capital='yes' AND admin_level='2' THEN 10 WHEN place='state' THEN 20 WHEN place='town' THEN 30 WHEN place='village' THEN 40 ELSE 100 END as prio, place AS type, name, z_order, CASE WHEN population ~ E'^\\d{1,9}$' THEN population::integer ELSE NULL END AS population, CASE WHEN capital='yes' AND admin_level='2' THEN 'country' ELSE NULL END AS is_capital FROM planet_osm_point WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality') AND place IS NOT NULL ORDER BY prio, population DESC NULLS LAST) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "place"
+        },
+        {
+            "id": "area_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type, name, way_area AS area, ST_PointOnSurface(way) AS way FROM planet_osm_polygon WHERE name IS NOT NULL AND (landuse IS NOT NULL OR leisure IS NOT NULL OR \"natural\" IS NOT NULL) AND way && !bbox! AND ST_IsValid(way) ORDER BY area DESC) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "area_label"
+        },
+        {
+            "id": "motorway_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, highway AS type, name, ref, CASE WHEN oneway IN ('yes', '-1') THEN oneway ELSE 'no' END AS oneway, CHAR_LENGTH(ref) AS reflen FROM planet_osm_line WHERE highway IN ('motorway', 'trunk') AND (name IS NOT NULL OR ref IS NOT NULL)) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "motorway_label"
+        },
+        {
+            "id": "mainroad_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, highway AS type, name, CASE WHEN oneway IN ('yes', '-1') THEN oneway ELSE 'no' END AS oneway FROM planet_osm_line WHERE (name IS NOT NULL OR oneway IN ('yes', '-1')) AND highway IN ('primary', 'secondary', 'tertiary')) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "mainroad_label"
+        },
+        {
+            "id": "minorroad_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, highway AS type, name, CASE WHEN oneway IN ('yes', '-1') THEN oneway ELSE 'no' END AS oneway FROM planet_osm_line WHERE (name IS NOT NULL OR oneway IN ('yes', '-1')) AND highway IN ('residential', 'unclassified', 'road', 'living_street', 'unknown')\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "minorroad_label"
+        },
+        {
+            "id": "admin-label-5-10",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    ST_Intersection(p.way, !bbox!) AS way, name, cast(regexp_replace(admin_level,'[^0-9]','','g') AS integer) AS admin_level\n  FROM\n    planet_osm_polygon p\n  WHERE\n    ST_Intersects(p.way,!bbox!) AND not ST_Covers(p.way, !bbox!)\n    AND boundary='administrative' AND admin_level IN ('5', '6', '7', '8', '9', '10')\n  ORDER BY\n    admin_level\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "admin-label-5-10"
+        },
+        {
+            "id": "admin-label-1-4",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n    ST_Intersection(p.way, !bbox!) AS way, name, cast(regexp_replace(admin_level,'[^0-9]','','g') AS integer) AS admin_level\n  FROM\n    planet_osm_polygon p\n  WHERE\n    ST_Intersects(p.way, !bbox!) AND not ST_Covers(p.way, !bbox!)\n    AND boundary='administrative' AND admin_level IN ('0', '2', '3', '4')\n  ORDER BY\n    admin_level\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "admin-label-1-4"
+        },
+        {
+            "id": "waterway_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('canal', 'river', 'stream') \n    AND name IS NOT NULL\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "waterway_label"
+        },
+        {
+            "id": "natural_point_label",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "( SELECT\n  way, \"natural\" AS type, name,\n  CASE WHEN ele ~ E'^\\\\d{1,5}$' THEN ele::integer ELSE null END as ele\nFROM\n  planet_osm_point\nWHERE\n  \"natural\" IS NOT NULL AND \"natural\" IN ('bay')\nORDER BY ele DESC NULLS LAST\n) AS data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "natural_point_label"
+        },
+        {
+            "id": "housenumber",
+            "extent": [
+                -180,
+                -85,
+                180,
+                85
+            ],
+            "srs-name": "3857",
+            "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+            "class": "",
+            "status": "on",
+            "Datasource": {
+                "type": "postgis",
+                "dbname": "hdm",
+                "key_field": "",
+                "geometry_field": "way",
+                "extent": "-20037508,-20037508,20037508,20037508",
+                "host": "localhost",
+                "user": "angelo",
+                "password": "chp@0479",
+                "table": "      (select way,\"addr:housenumber\" AS housenumber, CASE WHEN \"addr:housenumber\" ~ E'^\\d+$' AND mod(\"addr:housenumber\"::bigint, 5) IN (0, 1) THEN 'yes' ELSE 'no' END AS mod5 FROM planet_osm_polygon WHERE \"addr:housenumber\" IS NOT NULL AND building IS NOT NULL UNION SELECT way,\"addr:housenumber\" AS housenumber, CASE WHEN \"addr:housenumber\" ~ E'^\\d+$' AND mod(\"addr:housenumber\"::bigint, 5) IN (0, 1) THEN 'yes' ELSE 'no' END AS mod5 FROM planet_osm_point WHERE \"addr:housenumber\" IS NOT NULL) as data"
+            },
+            "advanced": {
+                "extent_from_subquery": "true"
+            },
+            "layerId": "housenumber"
+        }
+    ],
+    "scale": 1,
+    "metatile": 8,
+    "attribution": "Data © OpenStreetMap (and) contributors under ODbL 1.0",
+    "description": "",
+    "name": "hdm",
+    "compareUrl": "http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+}

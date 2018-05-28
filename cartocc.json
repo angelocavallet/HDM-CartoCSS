@@ -1,0 +1,46 @@
+[
+    {
+        "if": {
+            "Datasource.type": "postgis"
+        },
+        "then": {
+            "Datasource.dbname": "gis",
+            "Datasource.password": "chp@0479",
+            "Datasource.user": "angelo",
+            "Datasource.host": "localhost"
+        }
+    },
+    {
+        "if": {
+            "id": "hillshade"
+        },
+        "then": {
+            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/hillshade.vrt"
+        }
+    },
+    {
+        "if": {
+            "id": "contour_line"
+        },
+        "then": {
+            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/contour-25m.shp"
+        }
+    },
+    {
+        "if": {
+            "id": "land-high"
+        },
+        "then": {
+            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/land-polygons-split-3857/land_polygons.shp"
+        }
+    },
+    {
+        "if": {
+            "id": "land-low"
+        },
+        "then": {
+            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp"
+        }
+    }
+]
+

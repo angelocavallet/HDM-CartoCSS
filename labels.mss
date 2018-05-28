@@ -283,6 +283,7 @@
 // POI LABELS
 // =====================================================================
 .poi::label[zoom>=15] {
+    text-name: "";
     text-face-name: @medium;
     text-size: 10;
     text-wrap-width: 30;
