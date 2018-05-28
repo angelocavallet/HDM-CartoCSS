@@ -15,7 +15,7 @@
             "id": "hillshade"
         },
         "then": {
-            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/hillshade.vrt"
+            "Datasource.file": "DEM/data/hillshade.vrt"
         }
     },
     {
@@ -23,7 +23,7 @@
             "id": "contour_line"
         },
         "then": {
-            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/contour-25m.shp"
+            "Datasource.file": "DEM/data/contour-25m.shp"
         }
     },
     {
@@ -31,7 +31,7 @@
             "id": "land-high"
         },
         "then": {
-            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/land-polygons-split-3857/land_polygons.shp"
+            "Datasource.file": "DEM/data/land-polygons-split-3857/land_polygons.shp"
         }
     },
     {
@@ -39,7 +39,7 @@
             "id": "land-low"
         },
         "then": {
-            "Datasource.file": "/home/angelo/Documents/HDM-CartoCSS/DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp"
+            "Datasource.file": "DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp"
         }
     }
 ]
