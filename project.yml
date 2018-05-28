@@ -20,13 +20,13 @@ _parts:
 
   postgis: &postgis
     type: postgis
-    dbname: osm
+    dbname: gis
     key_field: ""
     geometry_field: way
     extent: -20037508,-20037508,20037508,20037508
     host: localhost
-    user: hot
-    password: m4d31nfr4nc3
+    user: osm
+    password: 
 
 center:
   - 29.9377
@@ -47,7 +47,7 @@ Stylesheet:
 
 Layer:
   - Datasource:
-      file: /home/angelo/Documents/HDM-CartoCSS/DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp
+      file: DEM/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp
       type: shape
     class: shp
     geometry: polygon
@@ -56,7 +56,7 @@ Layer:
 
   - id: land-high
     Datasource:
-      file: /home/angelo/Documents/HDM-CartoCSS/DEM/data/land-polygons-split-3857/land_polygons.shp
+      file: DEM/data/land-polygons-split-3857/land_polygons.shp
       type: shape
     class: shp
     geometry: polygon
