@@ -4,10 +4,7 @@
             "Datasource.type": "postgis"
         },
         "then": {
-            "Datasource.dbname": "gis",
-            "Datasource.password": "chp@0479",
-            "Datasource.user": "angelo",
-            "Datasource.host": "localhost"
+            "Datasource.dbname": "gis"
         }
     },
     {
